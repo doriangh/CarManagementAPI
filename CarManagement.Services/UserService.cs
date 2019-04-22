@@ -5,6 +5,7 @@ using CarManagementAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using CarManagement.Infrastructure.Utils;
 
 namespace CarManagement.Services
 {
@@ -20,8 +21,7 @@ namespace CarManagement.Services
         public AddUserResponse AddUser(AddUserRequest request)
         {
 
-            AddUserResponse response = new AddUserResponse();
-            response.Errors = new List<string>();
+            var response = new AddUserResponse {Errors = new List<string>()};
 
             //TODO: validari
 
@@ -37,7 +37,7 @@ namespace CarManagement.Services
                 Name = request.Name,
                 Age = request.Age,
                 Username = request.Username,
-                Password = request.Password,
+                Password = Sha.Encrypt(request.Password),
                 UserImage = request.UserImage
             });
 

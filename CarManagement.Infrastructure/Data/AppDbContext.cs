@@ -9,11 +9,10 @@ namespace CarManagement.Infrastructure.Data
 {
     public class AppDbContext : DbContext
     {
-
-
         public DbSet<User> Users { get; set; }
         public DbSet<Car> Cars { get; set; }
-        //public DbSet<CarDetail> CarDetails { get; set; }
+        public DbSet<Session> Session { get; set; }
+        public DbSet<CarDetail> CarDetails { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder _builder)
         {

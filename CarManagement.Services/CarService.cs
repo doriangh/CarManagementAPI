@@ -18,7 +18,7 @@ namespace CarManagement.Services
         }
         public AddCarResponse AddCar(AddCarRequest request)
         {
-            AddCarResponse response = new AddCarResponse
+            var response = new AddCarResponse
             {
                 Errors = new List<string>()
             };
@@ -59,7 +59,7 @@ namespace CarManagement.Services
 
         public AddCarResponse Delete(int id)
         {
-            AddCarResponse response = new AddCarResponse
+            var response = new AddCarResponse
             {
                 Errors = new List<string>()
             };

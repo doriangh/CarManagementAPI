@@ -9,6 +9,7 @@ namespace CarManagement.Core.Interfaces
     {
         List<User> GetAll();
         User GetById(int id);
+        User GetByUsername(string username);
         void Delete(int id);
         void Add(User user);
         void Update(int id, User user);

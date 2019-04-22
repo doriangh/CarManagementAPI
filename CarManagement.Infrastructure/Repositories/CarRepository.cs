@@ -10,7 +10,7 @@ namespace CarManagement.Infrastructure.Repositories
 {
     public class CarRepository : ICarRepository
     {
-        private AppDbContext _context;
+        private readonly AppDbContext _context;
 
         public CarRepository(AppDbContext context)
         {
@@ -41,16 +41,10 @@ namespace CarManagement.Infrastructure.Repositories
 
         public List<Car> GetByUserId(int UserId)
         {
-            List<Car> userCars = new List<Car>();
             var user = _context.Users.Find(UserId);
             if (user == null) throw new KeyNotFoundException();
 
-            foreach (var car in _context.Cars)
-            {
-                if (car.UserId == UserId) userCars.Add(car);
-            }
-
-            return userCars;
+            return _context.Cars.Where(car => car.UserId == UserId).ToList();
             
         }
 

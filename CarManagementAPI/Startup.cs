@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace CarManagementAPI___New
+namespace CarManagementAPI
 {
     public class Startup
     {
@@ -30,9 +30,11 @@ namespace CarManagementAPI___New
 
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<ICarRepository, CarRepository>();
+            services.AddTransient<ISessionRepository, SessionRepository>();
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICarService, CarService>();
+            services.AddScoped<ISessionService, SessionService>();
             
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info { Title = "CarManagement", Version = "v1" }); });
 
@@ -56,7 +58,7 @@ namespace CarManagementAPI___New
 
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "CarManagement V1"); });
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
