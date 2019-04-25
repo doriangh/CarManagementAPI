@@ -1,10 +1,7 @@
 using System.Collections.Generic;
-using CarManagement.Core.Entities;
 using CarManagement.Core.Interfaces;
 using CarManagement.Core.Requests;
 using CarManagement.Core.Responses;
-using CarManagement.Infrastructure.Utils;
-using CarManagementAPI.Models;
 
 namespace CarManagement.Services
 {

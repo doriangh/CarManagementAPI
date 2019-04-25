@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CarManagementAPI.Models
+namespace CarManagement.Core.Entities
 {
     public partial class User
     {

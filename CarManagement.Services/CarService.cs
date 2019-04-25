@@ -1,16 +1,14 @@
 ﻿using CarManagement.Core.Interfaces;
 using CarManagement.Core.Requests;
 using CarManagement.Core.Responses;
-using CarManagementAPI.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using CarManagement.Core.Entities;
 
 namespace CarManagement.Services
 {
     public class CarService : ICarService
     {
-        readonly ICarRepository _carRepository;
+        private readonly ICarRepository _carRepository;
 
         public CarService(ICarRepository carRepository)
         {
@@ -28,6 +26,7 @@ namespace CarManagement.Services
 
             _carRepository.Add(new Car()
             {
+                UserId = request.UserId,
                 Make = request.Make,
                 Manufacturer = request.Manufacturer,
                 Plant = request.Plant,

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CarManagementAPI.Models
+namespace CarManagement.Core.Entities
 {
-    public partial class Car
+    public class Car
     {
         [Key]
         public int Id { get; set; }
@@ -14,7 +14,6 @@ namespace CarManagementAPI.Models
         public string Plant { get; set; }
         public string ModelYear { get; set; }
         public string SequentialNumber { get; set; }
-        [Required]
         public string Model { get; set; }
         public string Body { get; set; }
         public string Drive { get; set; }

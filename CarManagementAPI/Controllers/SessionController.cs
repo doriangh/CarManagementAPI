@@ -1,3 +1,5 @@
+using System.Net;
+using System.Net.Http;
 using CarManagement.Core.Interfaces;
 using CarManagement.Core.Requests;
 using Microsoft.AspNetCore.Mvc;
@@ -22,9 +24,9 @@ namespace CarManagementAPI.Controllers
         }
 
         [HttpGet]
-        public void Get([FromQuery] VerifySessionRequest request)
+        public HttpResponseMessage Get([FromQuery] VerifySessionRequest request)
         {
-            _service.VerifySession(request);
+            return _service.VerifySession(request) ? new HttpResponseMessage(HttpStatusCode.OK) : new HttpResponseMessage(HttpStatusCode.NotFound);
         }
     }
 }

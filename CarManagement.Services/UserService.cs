@@ -1,17 +1,15 @@
 ﻿using CarManagement.Core.Interfaces;
 using CarManagement.Core.Requests;
 using CarManagement.Core.Responses;
-using CarManagementAPI.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using CarManagement.Core.Entities;
 using CarManagement.Infrastructure.Utils;
 
 namespace CarManagement.Services
 {
     public class UserService : IUserService
     {
-        readonly IUserRepository _userRepository;
+        private readonly IUserRepository _userRepository;
 
         public UserService(IUserRepository userRepository)
         {

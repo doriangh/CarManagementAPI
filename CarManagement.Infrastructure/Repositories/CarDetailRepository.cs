@@ -1,8 +1,5 @@
 ﻿using CarManagement.Core.Interfaces;
 using CarManagement.Infrastructure.Data;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CarManagement.Infrastructure.Repositories
 {

@@ -1,10 +1,8 @@
 ﻿using CarManagement.Core.Interfaces;
 using CarManagement.Infrastructure.Data;
-using CarManagementAPI.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using CarManagement.Core.Entities;
 
 namespace CarManagement.Infrastructure.Repositories
 {
