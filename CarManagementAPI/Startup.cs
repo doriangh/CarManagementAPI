@@ -31,10 +31,12 @@ namespace CarManagementAPI
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<ICarRepository, CarRepository>();
             services.AddTransient<ISessionRepository, SessionRepository>();
+            services.AddTransient<ICarDetailRepository, CarDetailRepository>();
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICarService, CarService>();
             services.AddScoped<ISessionService, SessionService>();
+            services.AddScoped<ICarDetailService, CarDetailService>();
             
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info { Title = "CarManagement", Version = "v1" }); });
 
@@ -58,7 +60,7 @@ namespace CarManagementAPI
 
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "CarManagement V1"); });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

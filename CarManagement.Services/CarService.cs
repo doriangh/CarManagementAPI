@@ -49,7 +49,8 @@ namespace CarManagement.Services
                 Emissions = request.Emissions,
                 Odometer = request.Odometer,
                 Vin = request.Vin,
-                License = request.License
+                License = request.License,
+                CarImage = request.CarImage
             });
 
             response.Success = true;

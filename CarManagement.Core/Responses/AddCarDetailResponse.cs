@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CarManagement.Core.Responses
 {
-    class AddCarDetailResponse : GenericResponse
+    public class AddCarDetailResponse : GenericResponse
     {
     }
 }
