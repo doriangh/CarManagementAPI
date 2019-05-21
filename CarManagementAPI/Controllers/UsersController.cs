@@ -1,4 +1,5 @@
-﻿using CarManagement.Core.Interfaces;
+﻿using CarManagement.Core.Entities;
+using CarManagement.Core.Interfaces;
 using CarManagement.Core.Requests;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,6 +31,12 @@ namespace CarManagementAPI.Controllers
         public JsonResult GetUser([FromRoute] int id)
         {
             return Json(_userService.GetById(id));
+        }
+
+        [HttpPut]
+        public JsonResult UpdateUser(int userId, [FromBody] UpdateUserRequest newUser)
+        {
+            return Json(_userService.UpdateUser(userId, newUser));
         }
 
         [HttpDelete("{id}")]

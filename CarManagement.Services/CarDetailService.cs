@@ -57,6 +57,28 @@ namespace CarManagement.Services
             return response;
         }
 
+        public UpdateCarDetailResponse UpdateCarDetail(int id, UpdateCarDetailRequest request)
+        {
+            var response = new UpdateCarDetailResponse()
+            {
+                Errors = new List<string>()
+            };
+            
+            _repository.Update(id, new CarDetail()
+            {
+                InsuranceValue = request.InsuranceValue,
+                Itp = request.ITP,
+                OilChange = request.OilChange,
+                RoadTax = request.RoadTax,
+                RoadTaxValue = request.RoadTaxValue,
+                TaxValue = request.TaxValue,
+                WinterTires = request.WinterTires
+            });
+
+            response.Success = true;
+            return response;
+        }
+
         public List<CarDetail> GetAll()
         {
             return _repository.GetAll();

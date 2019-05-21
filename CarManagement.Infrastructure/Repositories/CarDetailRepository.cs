@@ -38,7 +38,15 @@ namespace CarManagement.Infrastructure.Repositories
 
         public void Update(int id, CarDetail carDetail)
         {
-            _context.CarDetails.Update(carDetail);
+            var oldDetails = GetById(id);
+            oldDetails.Itp = carDetail.Itp;
+            oldDetails.RoadTax = carDetail.RoadTax;
+            oldDetails.WinterTires = carDetail.WinterTires;
+            oldDetails.OilChange = carDetail.OilChange;
+            oldDetails.InsuranceValue = carDetail.InsuranceValue;
+            oldDetails.RoadTaxValue = carDetail.RoadTaxValue;
+            oldDetails.TaxValue = carDetail.TaxValue;
+            _context.SaveChanges();
         }
 
         public List<CarDetail> GetByCarId(int carId)

@@ -12,5 +12,6 @@ namespace CarManagement.Core.Interfaces
         CarDetail GetById(int id);
         AddCarDetailResponse Delete(int id);
         List<CarDetail> GetByCarId(int id);
+        UpdateCarDetailResponse UpdateCarDetail(int id, UpdateCarDetailRequest request);
     }
 }

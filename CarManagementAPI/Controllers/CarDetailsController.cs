@@ -28,6 +28,12 @@ namespace CarManagementAPI.Controllers
             return Json(_carDetailService.GetById(id));
         }
 
+        [HttpPut]
+        public JsonResult UpdateCarDetail(int id, [FromBody] UpdateCarDetailRequest request)
+        {
+            return Json(_carDetailService.UpdateCarDetail(id, request));
+        }
+
         [HttpGet("Car/{id}")]
         public JsonResult GetCarDetailForCar([FromRoute] int id)
         {

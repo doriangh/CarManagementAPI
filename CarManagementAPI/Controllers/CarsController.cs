@@ -1,6 +1,7 @@
 ﻿using CarManagement.Core.Interfaces;
 using CarManagement.Core.Requests;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace CarManagementAPI.Controllers
 {
@@ -24,6 +25,12 @@ namespace CarManagementAPI.Controllers
         public JsonResult GetAll()
         {
             return Json(_carService.GetAll());
+        }
+
+        [HttpPut]
+        public JsonResult UpdateCar(int carId, [FromBody] UpdateCarRequest request)
+        {
+            return Json(_carService.UpdateCar(carId, request));
         }
 
         [HttpGet("{id}")]

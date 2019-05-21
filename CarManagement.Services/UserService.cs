@@ -42,6 +42,28 @@ namespace CarManagement.Services
             response.Success = true;
             return response;
         }
+
+        public UpdateUserResponse UpdateUser(int userId, UpdateUserRequest request)
+        {
+            var response = new UpdateUserResponse {Errors = new List<string>()};
+
+
+            var newUser = _userRepository.GetById(userId);
+            
+            
+            
+            _userRepository.Update(userId, new User()
+            {
+                Name = request.Name,
+                Age =  request.Age,
+                Username = request.Username,
+                UserImage = request.UserImage
+            });
+
+            response.Success = true;
+            return response;
+
+        }
         public List<User> GetAll()
         {
             return _userRepository.GetAll();

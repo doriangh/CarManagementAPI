@@ -46,11 +46,11 @@ namespace CarManagement.Infrastructure.Repositories
         public void Update(int id, User user)
         {
             var oldUser = GetById(id);
-            oldUser.Id = user.Id;
+            //oldUser.Id = user.Id;
             oldUser.Name = user.Name;
             oldUser.Age = user.Age;
             oldUser.Username = user.Username;
-            oldUser.Password = user.Password;
+            //oldUser.Password = user.Password;
             oldUser.UserImage = user.UserImage;
             _context.SaveChanges();
         }

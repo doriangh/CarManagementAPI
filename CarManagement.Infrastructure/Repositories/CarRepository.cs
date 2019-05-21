@@ -48,7 +48,33 @@ namespace CarManagement.Infrastructure.Repositories
 
         public void Update(int id, Car car)
         {
-            _context.Cars.Update(car);
+            var oldCar = GetById(id);
+            oldCar.Make = car.Make;
+            oldCar.Manufacturer = car.Manufacturer;
+            oldCar.Plant = car.Plant;
+            oldCar.ModelYear = car.ModelYear;
+            oldCar.SequentialNumber = car.SequentialNumber;
+            oldCar.Model = car.Model;
+            oldCar.Body = car.Body;
+            oldCar.Drive = car.Drive;
+            oldCar.NumberofSeats = car.NumberofSeats;
+            oldCar.NumberofDoors = car.NumberofDoors;
+            oldCar.Steering = car.Steering;
+            oldCar.EngineDisplacement = car.EngineDisplacement;
+            oldCar.EngineCylinders = car.EngineCylinders;
+            oldCar.NumberofGears = car.NumberofGears;
+            oldCar.Engine = car.Engine;
+            oldCar.Made = car.Made;
+            oldCar.Color = car.Color;
+            oldCar.Fuel = car.Fuel;
+            oldCar.Cc = car.Cc;
+            oldCar.Power = car.Power;
+            oldCar.Emissions = car.Emissions;
+            oldCar.Odometer = car.Odometer;
+            oldCar.Vin = car.Vin;
+            oldCar.License = car.License;
+            oldCar.CarImage = car.CarImage;
+            _context.SaveChanges();
         }
     }
 }

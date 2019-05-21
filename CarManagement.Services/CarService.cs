@@ -57,6 +57,45 @@ namespace CarManagement.Services
             return response;
         }
 
+        public UpdateCarResponse UpdateCar(int carId, UpdateCarRequest request)
+        {
+            var response = new UpdateCarResponse()
+            {
+                Errors = new List<string>()
+            };
+            
+            _carRepository.Update(carId, new Car()
+            {
+                Make = request.Make,
+                Manufacturer = request.Manufacturer,
+                Plant = request.Plant,
+                ModelYear = request.ModelYear,
+                Model = request.Model,
+                Body = request.Body,
+                Drive = request.Drive,
+                NumberofSeats = request.NumberofSeats,
+                NumberofDoors = request.NumberofDoors,
+                Steering = request.Steering,
+                EngineDisplacement = request.EngineDisplacement,
+                EngineCylinders = request.EngineCylinders,
+                NumberofGears = request.NumberofGears,
+                Engine = request.Engine,
+                Made = request.Made,
+                Color = request.Color,
+                Fuel = request.Fuel,
+                Cc = request.Cc,
+                Power = request.Power,
+                Emissions = request.Emissions,
+                Odometer = request.Odometer,
+                Vin = request.Vin,
+                License = request.License,
+                CarImage = request.CarImage
+            });
+
+            response.Success = true;
+            return response;
+        }
+
         public AddCarResponse Delete(int id)
         {
             var response = new AddCarResponse
