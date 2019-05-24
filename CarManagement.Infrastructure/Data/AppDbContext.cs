@@ -10,6 +10,7 @@ namespace CarManagement.Infrastructure.Data
         public DbSet<Session> Session { get; set; }
         public DbSet<CarDetail> CarDetails { get; set; }
         public DbSet<CarPrice> CarPrices { get; set; }
+        public DbSet<FallbackCarPrice> CarPriceData { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder _builder)
         {

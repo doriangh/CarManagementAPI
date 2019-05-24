@@ -6,17 +6,18 @@ namespace CarManagement.Core.Entities
     {
         [Key]
         public  int id { get; set; }
-        //public string Address { get; set; }
         public string body { get; set; }
+        public int CC { get; set; }
         public string color { get; set; }
-        //public string currency { get; set; }
-        public string CC { get; set; }
         public string fuel { get; set; }
         public string gearbox { get; set; }
         public string make { get; set; }
         public string model { get; set; }
-        public string mileage { get; set; }
+        public int odometer { get; set; }
+        public int power { get; set; }
         public string price { get; set; }
-        public string year { get; set; }
+        public string title { get; set; }
+        public int year { get; set; }
+        public int round25 { get; set; }
     }
 }

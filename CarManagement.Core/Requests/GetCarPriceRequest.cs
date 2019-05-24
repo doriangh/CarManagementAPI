@@ -4,9 +4,9 @@ namespace CarManagement.Core.Requests
     {
         public string make { get; set; }
         public string model { get; set; }
-        public string year { get; set; }
-        public string CC { get; set; }
-        public string odometer { get; set; }
+        public int year { get; set; }
+        public int CC { get; set; }
+        public int odometer { get; set; }
 
     }
 }
