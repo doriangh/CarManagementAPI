@@ -6,6 +6,6 @@ namespace CarManagement.Core.Interfaces
 {
     public interface ICarPriceService
     {
-        decimal GetPriceForCar(GetCarPriceRequest car);
+        GetCarPriceResponse GetPrice(GetCarPriceRequest car);
     }
 }

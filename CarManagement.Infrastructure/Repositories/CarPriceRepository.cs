@@ -18,76 +18,33 @@ namespace CarManagement.Infrastructure.Repositories
             _context = context;
         }
         
-        public decimal GetPrice(GetCarPriceRequest car)
+        public GetCarPriceResponse GetPrice(GetCarPriceRequest car)
         {
-
-            int differenceDown = 0;
-            int differenceUp = 0;
-
-
-            if (car.odometer < 1000)
+            var price = new GetCarPriceResponse
             {
-                differenceDown = 0;
-                differenceUp = 5000;
-            }
-            else if (car.odometer < 50000)
-            {
-                differenceDown = 1000;
-                differenceUp = 100000;
-            }
-            else if (car.odometer < 150000)
-            {
-                differenceDown = 50000;
-                differenceUp = 200000;
-            }
-            else
-            {
-                differenceDown = 150000;
-                differenceUp = 300000;
-            }
+                Errors = new List<string>()
+            };
 
-            var carPrice = _context.CarPrices.Where(p => 
-                p.make == car.make && 
-                p.model == car.model && 
-                p.year == car.year && 
-                p.CC >= car.CC - 100 &&
-                p.CC <= car.CC + 100 &&
-                p.round25 >= differenceDown &&
-                p.round25 <= differenceUp).ToList();
+            if (GetPriceFirst(car) == null)
+                if (GetPriceSecond(car) == null)
+                    if (GetPriceThird(car) == null)
+                        if (GetPriceFourth(car) == null)
+                            if (GetPriceFifth(car) == null)
+                                if (GetPriceSixth(car) == null)
+                                {
+                                    price.Success = false;
+                                    price.Errors.Add("Could not find car price");
+                                }
+                                else price = GetPriceSixth(car);
+                            else price = GetPriceFifth(car);
+                        else price = GetPriceFourth(car);
+                    else price = GetPriceThird(car);
+                else price = GetPriceSecond(car);
+            else price = GetPriceFirst(car);
 
-            if (carPrice.Count == 0)
-            {
-                if (car.odometer < 100000)
-                {
-                    differenceDown = 0;
-                    differenceUp = 100000;
-                }
-                else
-                {
-                    differenceDown = 100000;
-                    differenceUp = 300000;
-                }
+            price.Success = true;
 
-                carPrice = _context.CarPrices.Where(p =>
-                p.make == car.make &&
-                p.model == car.model &&
-                p.year == car.year &&
-                p.CC >= car.CC - 500 &&
-                p.CC <= car.CC + 500 &&
-                p.round25 >= differenceDown &&
-                p.round25 <= differenceUp).ToList();
-            }
-
-            var price = 0;
-            
-            foreach (var currPrice in carPrice)
-            {
-                price += Convert.ToInt32(currPrice.price);
-            }
-
-            var avgPrice = Math.Floor(Convert.ToDecimal(price/carPrice.Count()));
-
-            return avgPrice;
+            return price;
         }
         
         public GetCarPriceResponse GetPriceFirst(GetCarPriceRequest car)
@@ -206,13 +163,13 @@ namespace CarManagement.Infrastructure.Repositories
 
         public GetCarPriceResponse GetPriceSixth(GetCarPriceRequest car)
         {
-            var prices = _context.CarPriceData.Where(p =>
+            var prices = _context.CarPriceData.FirstOrDefault(p =>
                                     p.year == car.year &&
                                     p.Round5000 >= car.odometer - 5000 &&
                                     p.Round5000 <= car.odometer + 5000 &&
-                                    p.RoundCC == car.CC).ToList();
+                                    p.RoundCC == car.CC);
 
-            if (prices.Count == 0) return null;
+            if (prices == null) return null;
             else
             {
                 return CalculateAveragePrice(prices);
@@ -233,16 +190,12 @@ namespace CarManagement.Infrastructure.Repositories
             };
         }
 
-        public GetCarPriceResponse CalculateAveragePrice(List<FallbackCarPrice> carPrices)
+        public GetCarPriceResponse CalculateAveragePrice(FallbackCarPrice carPrices)
         {
-            var price = 0;
-            foreach (var carPrice in carPrices)
-                price += Convert.ToInt32(carPrice.price);
-
             return new GetCarPriceResponse()
             {
-                price = price / carPrices.Count(),
-                count = carPrices.Count()
+                price = carPrices.avgPrice,
+                count = carPrices.count
             };
         }
     }

@@ -19,7 +19,7 @@ namespace CarManagementAPI.Controllers
         [HttpPost]
         public JsonResult GetAll([FromBody] GetCarPriceRequest car)
         {
-            return Json(_service.GetPriceForCar(car));
+            return Json(_service.GetPrice(car));
         }
 
     }

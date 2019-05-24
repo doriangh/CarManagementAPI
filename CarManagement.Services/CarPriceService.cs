@@ -13,8 +13,8 @@ namespace CarManagement.Services
         {
             _repository = repository;
         }
-        
-        public decimal GetPriceForCar(GetCarPriceRequest car)
+
+        public GetCarPriceResponse GetPrice(GetCarPriceRequest car)
         {
             return _repository.GetPrice(car);
         }
