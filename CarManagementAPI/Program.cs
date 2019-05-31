@@ -1,9 +1,8 @@
 ﻿using CarManagement.Infrastructure.Data;
-using CarManagementAPI;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace CarManagementAPI___New
+namespace CarManagementAPI
 {
     public class Program
     {

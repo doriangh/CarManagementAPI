@@ -1,14 +1,13 @@
-﻿using CarManagement.Core.Interfaces;
-using CarManagement.Infrastructure.Data;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using CarManagement.Core.Entities;
+using CarManagement.Core.Interfaces;
+using CarManagement.Infrastructure.Data;
 
 namespace CarManagement.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-
         private readonly AppDbContext _context;
 
         public UserRepository(AppDbContext context)
@@ -24,7 +23,7 @@ namespace CarManagement.Infrastructure.Repositories
 
         public User GetByUsername(string username)
         {
-            return _context.Users.FirstOrDefault(user => user.Username == username); 
+            return _context.Users.FirstOrDefault(user => user.Username == username);
         }
 
         public void Delete(int id)
@@ -54,7 +53,5 @@ namespace CarManagement.Infrastructure.Repositories
             oldUser.UserImage = user.UserImage;
             _context.SaveChanges();
         }
-
-        
     }
 }

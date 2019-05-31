@@ -16,22 +16,19 @@ namespace CarManagement.Infrastructure.Repositories
             _context = context;
             _repository = repository;
         }
-        
+
         public Session GenerateSession(string username, string password)
         {
             var user = _repository.GetByUsername(username);
             if (user == null) return null;
 
-            if (Valid(user.Id, user.Password))
-            {
-                return _context.Session.FirstOrDefault(u => u.UserId == user.Id);
-            }
+            if (Valid(user.Id, user.Password)) return _context.Session.FirstOrDefault(u => u.UserId == user.Id);
 
             var hash = Sha.Encrypt(RandomString.CreateString(256));
-            var session = new Session()
+            var session = new Session
             {
-               UserId = user.Id,
-               Key = hash
+                UserId = user.Id,
+                Key = hash
             };
             _context.Session.Add(session);
             _context.SaveChanges();

@@ -34,7 +34,7 @@ namespace CarManagement.Services
                 return response;
             }
 
-            if (Convert.ToDateTime(request.ITP) < DateTime.Today && Convert.ToDateTime(request.RoadTax) < DateTime.Today && Convert.ToDateTime(request.OilChange) < DateTime.Today)
+            if (Convert.ToDateTime(request.Itp) < DateTime.Today && Convert.ToDateTime(request.RoadTax) < DateTime.Today && Convert.ToDateTime(request.OilChange) < DateTime.Today)
             {
                 response.Errors.Add("Dates invalid");
                 response.Success = false;
@@ -45,7 +45,7 @@ namespace CarManagement.Services
             {
                 CarId = request.CarId,
                 InsuranceValue = request.InsuranceValue,
-                Itp = request.ITP,
+                Itp = request.Itp,
                 OilChange = request.OilChange,
                 RoadTax = request.RoadTax,
                 RoadTaxValue = request.RoadTaxValue,
@@ -67,7 +67,7 @@ namespace CarManagement.Services
             _repository.Update(id, new CarDetail()
             {
                 InsuranceValue = request.InsuranceValue,
-                Itp = request.ITP,
+                Itp = request.Itp,
                 OilChange = request.OilChange,
                 RoadTax = request.RoadTax,
                 RoadTaxValue = request.RoadTaxValue,

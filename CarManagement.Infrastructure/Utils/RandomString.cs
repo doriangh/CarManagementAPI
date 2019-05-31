@@ -11,10 +11,7 @@ namespace CarManagement.Infrastructure.Utils
             const string allowedChars = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz0123456789!@$?_-";
             var chars = new char[length];
 
-            for (var i = 0; i < length; i++)
-            {
-                chars[i] = allowedChars[Random.Next(0, allowedChars.Length)];
-            }
+            for (var i = 0; i < length; i++) chars[i] = allowedChars[Random.Next(0, allowedChars.Length)];
 
             return new string(chars);
         }

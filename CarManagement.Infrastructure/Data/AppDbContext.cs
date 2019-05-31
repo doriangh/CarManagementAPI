@@ -12,9 +12,9 @@ namespace CarManagement.Infrastructure.Data
         public DbSet<CarPrice> CarPrices { get; set; }
         public DbSet<FallbackCarPrice> CarPriceData { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder _builder)
+        protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-            _builder.UseMySql("Server=golar3.go.ro;Database=CarManagement;User=carManagement;Password=59885236;");
+            builder.UseMySql("Server=golar3.go.ro;Database=CarManagement;User=carManagement;Password=59885236;");
         }
     }
 }

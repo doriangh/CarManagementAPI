@@ -11,13 +11,10 @@ namespace CarManagement.Infrastructure.Utils
             using (var sha256 = SHA256.Create())
             {
                 var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(str));
-                
+
                 var stringBuilder = new StringBuilder();
 
-                for (var i = 0; i < bytes.Length; i++)
-                {
-                    stringBuilder.Append(bytes[i].ToString("x2"));
-                }
+                foreach (var t in bytes) stringBuilder.Append(t.ToString("x2"));
 
                 return stringBuilder.ToString();
             }

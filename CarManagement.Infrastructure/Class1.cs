@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CarManagement.Infrastructure
+﻿namespace CarManagement.Infrastructure
 {
     public class Class1
     {

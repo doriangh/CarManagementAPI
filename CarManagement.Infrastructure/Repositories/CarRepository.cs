@@ -1,22 +1,35 @@
-﻿using CarManagement.Core.Interfaces;
-using CarManagement.Infrastructure.Data;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using CarManagement.Core.Entities;
+using CarManagement.Core.Interfaces;
+using CarManagement.Core.Requests;
+using CarManagement.Infrastructure.Data;
 
 namespace CarManagement.Infrastructure.Repositories
 {
     public class CarRepository : ICarRepository
     {
         private readonly AppDbContext _context;
+        private readonly ICarPriceRepository _carPrice;
 
-        public CarRepository(AppDbContext context)
+        public CarRepository(AppDbContext context, ICarPriceRepository carPrice)
         {
             _context = context;
+            _carPrice = carPrice;
         }
 
         public void Add(Car car)
         {
+            var request = new GetCarPriceRequest
+            {
+                Cc = Convert.ToInt32(car.Cc),
+                Make = car.Make,
+                Model = car.Model,
+                Odometer = Convert.ToInt32(car.Odometer),
+                Year = Convert.ToInt32(car.ModelYear)
+            };
+            car.CarPrice = _carPrice.GetPrice(request).Price.ToString();
             _context.Cars.Add(car);
             _context.SaveChanges();
         }
@@ -37,13 +50,12 @@ namespace CarManagement.Infrastructure.Repositories
             return _context.Cars.FirstOrDefault(c => c.Id == id);
         }
 
-        public List<Car> GetByUserId(int UserId)
+        public List<Car> GetByUserId(int userId)
         {
-            var user = _context.Users.Find(UserId);
+            var user = _context.Users.Find(userId);
             if (user == null) throw new KeyNotFoundException();
 
-            return _context.Cars.Where(car => car.UserId == UserId).ToList();
-            
+            return _context.Cars.Where(car => car.UserId == userId).ToList();
         }
 
         public void Update(int id, Car car)
@@ -74,6 +86,7 @@ namespace CarManagement.Infrastructure.Repositories
             oldCar.Vin = car.Vin;
             oldCar.License = car.License;
             oldCar.CarImage = car.CarImage;
+            oldCar.CarPrice = car.CarPrice;
             _context.SaveChanges();
         }
     }

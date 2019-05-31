@@ -9,7 +9,7 @@ namespace CarManagementAPI.Controllers
     [ApiController]
     public class CarPriceController : Controller
     {
-        private ICarPriceService _service;
+        private readonly ICarPriceService _service;
 
         public CarPriceController(ICarPriceService service)
         {

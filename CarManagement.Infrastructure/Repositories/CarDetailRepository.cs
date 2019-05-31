@@ -9,6 +9,7 @@ namespace CarManagement.Infrastructure.Repositories
     public class CarDetailRepository : ICarDetailRepository
     {
         private readonly AppDbContext _context;
+
         public CarDetailRepository(AppDbContext context)
         {
             _context = context;

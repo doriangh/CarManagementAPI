@@ -5,19 +5,19 @@ namespace CarManagement.Core.Entities
     public class CarPrice
     {
         [Key]
-        public  int id { get; set; }
-        public string body { get; set; }
-        public int CC { get; set; }
-        public string color { get; set; }
-        public string fuel { get; set; }
-        public string gearbox { get; set; }
-        public string make { get; set; }
-        public string model { get; set; }
-        public int odometer { get; set; }
-        public int power { get; set; }
-        public string price { get; set; }
-        public string title { get; set; }
-        public int year { get; set; }
-        public int round25 { get; set; }
+        public  int Id { get; set; }
+        public string Body { get; set; }
+        public int Cc { get; set; }
+        public string Color { get; set; }
+        public string Fuel { get; set; }
+        public string Gearbox { get; set; }
+        public string Make { get; set; }
+        public string Model { get; set; }
+        public int Odometer { get; set; }
+        public int Power { get; set; }
+        public string Price { get; set; }
+        public string Title { get; set; }
+        public int Year { get; set; }
+        //public int round25 { get; set; }
     }
 }

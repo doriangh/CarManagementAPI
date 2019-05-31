@@ -12,6 +12,6 @@ namespace CarManagement.Core.Interfaces
         void Delete(int id);
         void Add(Car car);
         void Update(int id, Car car);
-        List<Car> GetByUserId(int UserId);
+        List<Car> GetByUserId(int userId);
     }
 }

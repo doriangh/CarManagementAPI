@@ -33,6 +33,7 @@ namespace CarManagement.Core.Entities
         public string Odometer { get; set; }
         public string Vin { get; set; }
         public string License { get; set; }
-        public  string CarImage { get; set; }
+        public string CarImage { get; set; }
+        public string CarPrice { get; set; }
     }
 }
