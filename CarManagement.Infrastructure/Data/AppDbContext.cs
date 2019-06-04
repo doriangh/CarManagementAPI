@@ -1,5 +1,6 @@
 ﻿using CarManagement.Core.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.ML;
 
 namespace CarManagement.Infrastructure.Data
 {
@@ -9,8 +10,6 @@ namespace CarManagement.Infrastructure.Data
         public DbSet<Car> Cars { get; set; }
         public DbSet<Session> Session { get; set; }
         public DbSet<CarDetail> CarDetails { get; set; }
-        public DbSet<CarPrice> CarPrices { get; set; }
-        public DbSet<FallbackCarPrice> CarPriceData { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {

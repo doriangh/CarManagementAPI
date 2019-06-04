@@ -2,17 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ApplicationIcon />
+    <Win32Resource />
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.8" />
+    <PackageReference Include="Microsoft.ML" Version="1.0.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CarManagement.Core\CarManagement.Core.csproj" />
+    <ProjectReference Include="..\CarManagementAPIML.Model\CarManagementAPIML.Model.csproj" />
   </ItemGroup>
 
 </Project>

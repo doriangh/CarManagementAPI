@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.202
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarManagement.Core", "CarManagement.Core\CarManagement.Core.csproj", "{30A5B3FB-7ED4-4AAA-8B0E-87AF188066C6}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarManagement.Services", "CarManagement.Services\CarManagement.Services.csproj", "{4C591991-3519-4559-959D-BB68E0D17456}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarManagementAPI", "CarManagementAPI\CarManagementAPI.csproj", "{4AD41256-E4BB-47E7-AF05-1194464FB062}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarManagementAPIML.Model", "CarManagementAPIML.Model\CarManagementAPIML.Model.csproj", "{AE712148-8896-464F-A39A-A41350F498F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4AD41256-E4BB-47E7-AF05-1194464FB062}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AD41256-E4BB-47E7-AF05-1194464FB062}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AD41256-E4BB-47E7-AF05-1194464FB062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE712148-8896-464F-A39A-A41350F498F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE712148-8896-464F-A39A-A41350F498F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE712148-8896-464F-A39A-A41350F498F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE712148-8896-464F-A39A-A41350F498F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
