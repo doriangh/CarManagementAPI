@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarManagement.Services", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarManagementAPI", "CarManagementAPI\CarManagementAPI.csproj", "{4AD41256-E4BB-47E7-AF05-1194464FB062}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarManagementAPIML.Model", "CarManagementAPIML.Model\CarManagementAPIML.Model.csproj", "{AE712148-8896-464F-A39A-A41350F498F2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{4AD41256-E4BB-47E7-AF05-1194464FB062}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AD41256-E4BB-47E7-AF05-1194464FB062}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AD41256-E4BB-47E7-AF05-1194464FB062}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AE712148-8896-464F-A39A-A41350F498F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AE712148-8896-464F-A39A-A41350F498F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AE712148-8896-464F-A39A-A41350F498F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AE712148-8896-464F-A39A-A41350F498F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

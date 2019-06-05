@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using CarManagement.Core.Entities;
 using CarManagement.Core.Interfaces;
 using CarManagement.Core.Requests;
 using CarManagement.Core.Responses;
-using CarManagement.Infrastructure.Data;
-using CarManagementAPIML.Model.DataModels;
+//using CarManagementAPIML.Model.DataModels;
+
 using Microsoft.ML;
 
 namespace CarManagement.Infrastructure.Repositories
@@ -20,7 +21,7 @@ namespace CarManagement.Infrastructure.Repositories
 
             var mlContext = new MLContext();
 
-            var mlModel = mlContext.Model.Load("../CarManagementAPIML.Model/MLModel.zip", out var modelInputSchema);
+            var mlModel = mlContext.Model.Load("MLModel.zip", out var modelInputSchema);
 
             var predEngine = mlContext.Model.CreatePredictionEngine<ModelInput, ModelOutput>(mlModel);
 
