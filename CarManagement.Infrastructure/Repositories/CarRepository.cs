@@ -11,25 +11,14 @@ namespace CarManagement.Infrastructure.Repositories
     public class CarRepository : ICarRepository
     {
         private readonly AppDbContext _context;
-        private readonly ICarPriceRepository _carPrice;
 
-        public CarRepository(AppDbContext context, ICarPriceRepository carPrice)
+        public CarRepository(AppDbContext context)
         {
             _context = context;
-            _carPrice = carPrice;
         }
 
         public void Add(Car car)
         {
-            var request = new GetCarPriceRequest
-            {
-                Cc = Convert.ToInt32(car.Cc),
-                Make = car.Make,
-                Model = car.Model,
-                Odometer = Convert.ToInt32(car.Odometer),
-                Year = Convert.ToInt32(car.ModelYear)
-            };
-            car.CarPrice = _carPrice.GetPrice(request).Price.ToString();
             _context.Cars.Add(car);
             _context.SaveChanges();
         }

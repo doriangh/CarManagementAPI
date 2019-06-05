@@ -1,7 +1,6 @@
 using CarManagement.Core.Entities;
-using CarManagement.Core.Interfaces;
-using CarManagement.Core.Requests;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.ML;
 
 namespace CarManagementAPI.Controllers
 {
@@ -9,18 +8,24 @@ namespace CarManagementAPI.Controllers
     [ApiController]
     public class CarPriceController : Controller
     {
-        private readonly ICarPriceService _service;
+        private readonly PredictionEnginePool<ModelInput, ModelOutput> _predictionEnginePool;
 
-        public CarPriceController(ICarPriceService service)
+        public CarPriceController(PredictionEnginePool<ModelInput, ModelOutput> predictionEnginePool)
         {
-            _service = service;
+            _predictionEnginePool = predictionEnginePool;
         }
 
         [HttpPost]
-        public JsonResult GetAll([FromBody] GetCarPriceRequest car)
+        public ActionResult<float> Post([FromBody] ModelInput input)
         {
-            return Json(_service.GetPrice(car));
-        }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
 
+            var result = _predictionEnginePool.Predict(input);
+
+            return Ok(result.Score);
+        }
     }
 }

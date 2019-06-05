@@ -1,4 +1,5 @@
-﻿using CarManagement.Core.Interfaces;
+﻿using CarManagement.Core.Entities;
+using CarManagement.Core.Interfaces;
 using CarManagement.Infrastructure.Data;
 using CarManagement.Infrastructure.Repositories;
 using CarManagement.Services;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.ML;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace CarManagementAPI
@@ -24,6 +26,8 @@ namespace CarManagementAPI
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddPredictionEnginePool<ModelInput, ModelOutput>()
+                .FromFile("MLModels/MLModel.zip");
 
             services.AddDbContext<AppDbContext>();
             services.AddScoped<DbContext, AppDbContext>();
@@ -32,14 +36,12 @@ namespace CarManagementAPI
             services.AddTransient<ICarRepository, CarRepository>();
             services.AddTransient<ISessionRepository, SessionRepository>();
             services.AddTransient<ICarDetailRepository, CarDetailRepository>();
-            services.AddTransient<ICarPriceRepository, CarPriceRepository>();
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICarService, CarService>();
             services.AddScoped<ISessionService, SessionService>();
             services.AddScoped<ICarDetailService, CarDetailService>();
-            services.AddScoped<ICarPriceService, CarPriceService>();
-            
+
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info { Title = "CarManagement", Version = "v1" }); });
 
             services.AddMvc();

@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +21,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.11" />
+    <PackageReference Include="Microsoft.Extensions.ML" Version="0.12.0" />
     <PackageReference Include="Microsoft.ML" Version="1.1.0" />
     <PackageReference Include="Microsoft.ML.FastTree" Version="1.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
@@ -32,6 +33,12 @@
     <ProjectReference Include="..\CarManagement.Core\CarManagement.Core.csproj" />
     <ProjectReference Include="..\CarManagement.Infrastructure\CarManagement.Infrastructure.csproj" />
     <ProjectReference Include="..\CarManagement.Services\CarManagement.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="MLModels\MLModel.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

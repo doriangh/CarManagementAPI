@@ -1,7 +1,6 @@
 ﻿using CarManagement.Core.Interfaces;
 using CarManagement.Core.Requests;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Storage;
 
 namespace CarManagementAPI.Controllers
 {

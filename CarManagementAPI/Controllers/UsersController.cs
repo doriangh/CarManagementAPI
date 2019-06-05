@@ -1,5 +1,4 @@
-﻿using CarManagement.Core.Entities;
-using CarManagement.Core.Interfaces;
+﻿using CarManagement.Core.Interfaces;
 using CarManagement.Core.Requests;
 using Microsoft.AspNetCore.Mvc;
 
