@@ -1,6 +1,5 @@
 ﻿using CarManagement.Core.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.ML;
 
 namespace CarManagement.Infrastructure.Data
 {

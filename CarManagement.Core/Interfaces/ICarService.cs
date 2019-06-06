@@ -1,14 +1,12 @@
-﻿using CarManagement.Core.Requests;
-using CarManagement.Core.Responses;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using CarManagement.Core.Entities;
+using CarManagement.Core.Requests;
+using CarManagement.Core.Responses;
 
 namespace CarManagement.Core.Interfaces
 {
     public interface ICarService
-    { 
+    {
         AddCarResponse AddCar(AddCarRequest request);
         List<Car> GetAll();
         Car GetById(int id);

@@ -9,6 +9,7 @@ namespace CarManagementAPI.Controllers
     public class CarsController : Controller
     {
         private readonly ICarService _carService;
+
         public CarsController(ICarService carService)
         {
             _carService = carService;
@@ -19,6 +20,7 @@ namespace CarManagementAPI.Controllers
         {
             return Json(_carService.AddCar(request));
         }
+
         [Route("All")]
         [HttpGet]
         public JsonResult GetAll()
@@ -39,7 +41,7 @@ namespace CarManagementAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public JsonResult DeleteCar([FromRoute]int id)
+        public JsonResult DeleteCar([FromRoute] int id)
         {
             return Json(_carService.Delete(id));
         }

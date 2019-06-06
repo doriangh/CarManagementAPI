@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using CarManagement.Core.Entities;
 using CarManagement.Core.Interfaces;
-using CarManagement.Core.Requests;
 using CarManagement.Infrastructure.Data;
 
 namespace CarManagement.Infrastructure.Repositories

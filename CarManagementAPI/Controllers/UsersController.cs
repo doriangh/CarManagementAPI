@@ -9,6 +9,7 @@ namespace CarManagementAPI.Controllers
     public class UsersController : Controller
     {
         private readonly IUserService _userService;
+
         public UsersController(IUserService userService)
         {
             _userService = userService;
@@ -39,9 +40,9 @@ namespace CarManagementAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public JsonResult DeleteUser([FromRoute]int id)
+        public JsonResult DeleteUser([FromRoute] int id)
         {
             return Json(_userService.DeleteUser(id));
         }
     }
-} 
+}

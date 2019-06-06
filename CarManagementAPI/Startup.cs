@@ -22,10 +22,8 @@ namespace CarManagementAPI
 
         private IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddPredictionEnginePool<ModelInput, ModelOutput>()
                 .FromFile("MLModels/MLModel.zip");
 
@@ -36,35 +34,30 @@ namespace CarManagementAPI
             services.AddTransient<ICarRepository, CarRepository>();
             services.AddTransient<ISessionRepository, SessionRepository>();
             services.AddTransient<ICarDetailRepository, CarDetailRepository>();
+            services.AddTransient<ICarPriceRepository, CarPriceRepository>();
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICarService, CarService>();
             services.AddScoped<ISessionService, SessionService>();
             services.AddScoped<ICarDetailService, CarDetailService>();
+            services.AddScoped<ICarPriceService, CarPriceService>();
 
-            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info { Title = "CarManagement", Version = "v1" }); });
+            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info {Title = "CarManagement", Version = "v1"}); });
 
             services.AddMvc();
-
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
-            {
                 app.UseDeveloperExceptionPage();
-            }
             else
-            {
                 app.UseHsts();
-            }
 
             app.UseSwagger();
 
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "CarManagement V1"); });
 
-            //app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

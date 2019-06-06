@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CarManagement.Core.Requests
+﻿namespace CarManagement.Core.Requests
 {
     public class AddUserRequest
     {

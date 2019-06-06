@@ -7,8 +7,8 @@ namespace CarManagement.Services
 {
     public class SessionService : ISessionService
     {
-        private readonly IUserRepository _userRepository;
         private readonly ISessionRepository _sessionRepository;
+        private readonly IUserRepository _userRepository;
 
         public SessionService(ISessionRepository sessionRepository, IUserRepository userRepository)
         {
@@ -42,7 +42,6 @@ namespace CarManagement.Services
             sessionResponse.Key = session.Key;
             sessionResponse.UserId = session.UserId;
             return sessionResponse;
-
         }
 
         public bool VerifySession(VerifySessionRequest request)

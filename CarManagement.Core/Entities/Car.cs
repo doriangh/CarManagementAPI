@@ -4,12 +4,12 @@ namespace CarManagement.Core.Entities
 {
     public class Car
     {
-        [Key]
-        public int Id { get; set; }
-        [Required]
-        public int UserId { get; set; }
-        [Required]
-        public string Make { get; set; }
+        [Key] public int Id { get; set; }
+
+        [Required] public int UserId { get; set; }
+
+        [Required] public string Make { get; set; }
+
         public string Manufacturer { get; set; }
         public string Plant { get; set; }
         public string ModelYear { get; set; }

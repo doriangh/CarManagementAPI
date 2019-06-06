@@ -9,8 +9,8 @@ namespace CarManagement.Services
 {
     public class CarDetailService : ICarDetailService
     {
-        private readonly ICarDetailRepository _repository;
         private readonly ICarRepository _carRepository;
+        private readonly ICarDetailRepository _repository;
 
         public CarDetailService(ICarDetailRepository repository, ICarRepository carRepository)
         {
@@ -20,7 +20,7 @@ namespace CarManagement.Services
 
         public AddCarDetailResponse AddCarDetail(AddCarDetailRequest request)
         {
-            var response = new AddCarDetailResponse()
+            var response = new AddCarDetailResponse
             {
                 Errors = new List<string>()
             };
@@ -34,14 +34,16 @@ namespace CarManagement.Services
                 return response;
             }
 
-            if (Convert.ToDateTime(request.Itp) < DateTime.Today && Convert.ToDateTime(request.RoadTax) < DateTime.Today && Convert.ToDateTime(request.OilChange) < DateTime.Today)
+            if (Convert.ToDateTime(request.Itp) < DateTime.Today &&
+                Convert.ToDateTime(request.RoadTax) < DateTime.Today &&
+                Convert.ToDateTime(request.OilChange) < DateTime.Today)
             {
                 response.Errors.Add("Dates invalid");
                 response.Success = false;
                 return response;
             }
-            
-            _repository.Add(new CarDetail()
+
+            _repository.Add(new CarDetail
             {
                 CarId = request.CarId,
                 InsuranceValue = request.InsuranceValue,
@@ -59,12 +61,12 @@ namespace CarManagement.Services
 
         public UpdateCarDetailResponse UpdateCarDetail(int id, UpdateCarDetailRequest request)
         {
-            var response = new UpdateCarDetailResponse()
+            var response = new UpdateCarDetailResponse
             {
                 Errors = new List<string>()
             };
-            
-            _repository.Update(id, new CarDetail()
+
+            _repository.Update(id, new CarDetail
             {
                 InsuranceValue = request.InsuranceValue,
                 Itp = request.Itp,
@@ -91,11 +93,11 @@ namespace CarManagement.Services
 
         public AddCarDetailResponse Delete(int id)
         {
-            var response = new AddCarDetailResponse()
+            var response = new AddCarDetailResponse
             {
                 Errors = new List<string>()
             };
-            
+
             _repository.Delete(id);
 
             response.Success = true;

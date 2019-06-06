@@ -1,8 +1,8 @@
-﻿using CarManagement.Core.Interfaces;
+﻿using System.Collections.Generic;
+using CarManagement.Core.Entities;
+using CarManagement.Core.Interfaces;
 using CarManagement.Core.Requests;
 using CarManagement.Core.Responses;
-using System.Collections.Generic;
-using CarManagement.Core.Entities;
 
 namespace CarManagement.Services
 {
@@ -14,6 +14,7 @@ namespace CarManagement.Services
         {
             _carRepository = carRepository;
         }
+
         public AddCarResponse AddCar(AddCarRequest request)
         {
             var response = new AddCarResponse
@@ -24,7 +25,7 @@ namespace CarManagement.Services
             //TODO: validari
 
 
-            _carRepository.Add(new Car()
+            _carRepository.Add(new Car
             {
                 UserId = request.UserId,
                 Make = request.Make,
@@ -59,12 +60,12 @@ namespace CarManagement.Services
 
         public UpdateCarResponse UpdateCar(int carId, UpdateCarRequest request)
         {
-            var response = new UpdateCarResponse()
+            var response = new UpdateCarResponse
             {
                 Errors = new List<string>()
             };
-            
-            _carRepository.Update(carId, new Car()
+
+            _carRepository.Update(carId, new Car
             {
                 Make = request.Make,
                 Manufacturer = request.Manufacturer,

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CarManagement.Core
+﻿namespace CarManagement.Core
 {
     public class Class1
     {

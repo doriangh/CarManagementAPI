@@ -5,10 +5,10 @@ namespace CarManagement.Core.Entities
 {
     public class CarDetail
     {
-        [Key]
-        public int Id { get; set; }
-        [Required]
-        public int CarId { get; set; }
+        [Key] public int Id { get; set; }
+
+        [Required] public int CarId { get; set; }
+
         public DateTime Itp { get; set; }
         public DateTime RoadTax { get; set; }
         public bool WinterTires { get; set; }

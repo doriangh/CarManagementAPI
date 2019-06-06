@@ -9,7 +9,6 @@ namespace CarManagementAPI.Controllers
     [Route("api/[controller]")]
     public class SessionController : Controller
     {
-
         private readonly ISessionService _service;
 
         public SessionController(ISessionService service)
@@ -26,7 +25,9 @@ namespace CarManagementAPI.Controllers
         [HttpGet]
         public HttpResponseMessage Get([FromQuery] VerifySessionRequest request)
         {
-            return _service.VerifySession(request) ? new HttpResponseMessage(HttpStatusCode.OK) : new HttpResponseMessage(HttpStatusCode.NotFound);
+            return _service.VerifySession(request)
+                ? new HttpResponseMessage(HttpStatusCode.OK)
+                : new HttpResponseMessage(HttpStatusCode.NotFound);
         }
     }
 }

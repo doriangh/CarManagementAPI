@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CarManagement.Core.Requests
+﻿namespace CarManagement.Core.Requests
 {
     public class AddCarRequest
     {
@@ -31,6 +27,6 @@ namespace CarManagement.Core.Requests
         public string Odometer { get; set; }
         public string Vin { get; set; }
         public string License { get; set; }
-        public  string CarImage { get; set; }
+        public string CarImage { get; set; }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace CarManagement.Core.Responses
 {
@@ -8,6 +6,5 @@ namespace CarManagement.Core.Responses
     {
         public bool Success { get; set; }
         public List<string> Errors { get; set; }
-
     }
 }
