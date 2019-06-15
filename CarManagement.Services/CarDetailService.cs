@@ -9,13 +9,16 @@ namespace CarManagement.Services
 {
     public class CarDetailService : ICarDetailService
     {
+        private readonly ICarPriceRepository _carPriceRepository;
         private readonly ICarRepository _carRepository;
         private readonly ICarDetailRepository _repository;
 
-        public CarDetailService(ICarDetailRepository repository, ICarRepository carRepository)
+        public CarDetailService(ICarDetailRepository repository, ICarRepository carRepository,
+            ICarPriceRepository carPriceRepository)
         {
             _repository = repository;
             _carRepository = carRepository;
+            _carPriceRepository = carPriceRepository;
         }
 
         public AddCarDetailResponse AddCarDetail(AddCarDetailRequest request)
@@ -34,9 +37,8 @@ namespace CarManagement.Services
                 return response;
             }
 
-            if (Convert.ToDateTime(request.Itp) < DateTime.Today &&
-                Convert.ToDateTime(request.RoadTax) < DateTime.Today &&
-                Convert.ToDateTime(request.OilChange) < DateTime.Today)
+            if (Convert.ToDateTime(request.Itp) > DateTime.Today &&
+                Convert.ToDateTime(request.RoadTax) > DateTime.Today)
             {
                 response.Errors.Add("Dates invalid");
                 response.Success = false;
@@ -52,7 +54,17 @@ namespace CarManagement.Services
                 RoadTax = request.RoadTax,
                 RoadTaxValue = request.RoadTaxValue,
                 TaxValue = request.TaxValue,
-                WinterTires = request.WinterTires
+                WinterTires = request.WinterTires,
+                Price = Convert.ToInt32(_carPriceRepository.GetCarPrice(new ModelInput
+                {
+                    Make = car.Make,
+                    Model = car.Model,
+                    Cc = float.Parse(car.Cc),
+                    Fuel = car.Fuel,
+                    Odometer = float.Parse(car.Odometer),
+                    Power = float.Parse(car.Power),
+                    Year = float.Parse(car.ModelYear)
+                }))
             });
 
             response.Success = true;

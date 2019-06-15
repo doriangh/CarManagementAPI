@@ -10,6 +10,6 @@ namespace CarManagement.Core.Interfaces
         User GetByUsername(string username);
         void Delete(int id);
         void Add(User user);
-        void Update(int id, User user);
+        void Update(User user);
     }
 }

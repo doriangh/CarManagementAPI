@@ -35,12 +35,16 @@ namespace CarManagementAPI
             services.AddTransient<ISessionRepository, SessionRepository>();
             services.AddTransient<ICarDetailRepository, CarDetailRepository>();
             services.AddTransient<ICarPriceRepository, CarPriceRepository>();
+            services.AddTransient<ICarsSoldRepository, CarsSoldRepository>();
+            services.AddTransient<ICarImageRepository, CarImageRepository>();
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICarService, CarService>();
             services.AddScoped<ISessionService, SessionService>();
             services.AddScoped<ICarDetailService, CarDetailService>();
             services.AddScoped<ICarPriceService, CarPriceService>();
+            services.AddScoped<ICarsSoldService, CarsSoldService>();
+            services.AddScoped<ICarImageService, CarImageService>();
 
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Info {Title = "CarManagement", Version = "v1"}); });
 

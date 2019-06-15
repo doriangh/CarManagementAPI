@@ -42,15 +42,16 @@ namespace CarManagement.Infrastructure.Repositories
             return _context.Users.FirstOrDefault(u => u.Id == id);
         }
 
-        public void Update(int id, User user)
+        public void Update(User user)
         {
-            var oldUser = GetById(id);
-            //oldUser.Id = user.Id;
+            var oldUser = GetById(user.Id);
+
             oldUser.Name = user.Name;
             oldUser.Age = user.Age;
             oldUser.Username = user.Username;
-            //oldUser.Password = user.Password;
             oldUser.UserImage = user.UserImage;
+            oldUser.PhoneNumber = user.PhoneNumber;
+            oldUser.Address = user.Address;
             _context.SaveChanges();
         }
     }

@@ -8,13 +8,6 @@ namespace CarManagementAPI.Controllers
     [ApiController]
     public class CarPriceController : Controller
     {
-        //private readonly PredictionEnginePool<ModelInput, ModelOutput> _predictionEnginePool;
-
-        /*public CarPriceController(PredictionEnginePool<ModelInput, ModelOutput> predictionEnginePool)
-        {
-            _predictionEnginePool = predictionEnginePool;
-        }*/
-
         private readonly ICarPriceService _carPriceService;
 
         public CarPriceController(ICarPriceService carPriceService)
@@ -26,16 +19,6 @@ namespace CarManagementAPI.Controllers
         public JsonResult Post([FromBody] ModelInput input)
         {
             return Json(_carPriceService.GetCarPrice(input));
-
-
-            /*if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
-            var result = _predictionEnginePool.Predict(input);
-
-            return Ok(result.Score);*/
         }
     }
 }

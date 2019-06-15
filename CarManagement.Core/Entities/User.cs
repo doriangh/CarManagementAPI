@@ -16,5 +16,7 @@ namespace CarManagement.Core.Entities
 
         public bool IsLogged { get; set; }
         public string UserImage { get; set; }
+        public int PhoneNumber { get; set; }
+        public string Address { get; set; }
     }
 }

@@ -9,6 +9,8 @@ namespace CarManagement.Infrastructure.Data
         public DbSet<Car> Cars { get; set; }
         public DbSet<Session> Session { get; set; }
         public DbSet<CarDetail> CarDetails { get; set; }
+        public DbSet<CarsSold> CarsSold { get; set; }
+        public DbSet<CarImages> CarImages { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
